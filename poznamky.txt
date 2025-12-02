@@ -1,0 +1,14 @@
+Připojení scanneru
+1. Připojit scanneru
+2. Otevřit terminal
+3. Zjistit jaké seriálové porty se nacházejí
+    sudo dmesg | grep tty
+4. Vyzkoušet na kterém portu se nachází připojený scanneru (Ve vzdáleném přístupu přes ssh nejde ani jeden program zavřít -> nutno uzavřít spojení)
+    minicom
+    sudo minicom -D /dev/ttyS0 -b 9600
+    screen
+    sudo screen /dev/ttyS0 9600
+    picocom
+    sudo picocom -b 9600 /dev/ttyS0    
+5. Nastavit práva pro skupinu dialout
+    sudo usermod -a -G dialout $USER
