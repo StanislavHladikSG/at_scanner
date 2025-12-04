@@ -195,43 +195,64 @@ def load_config(config_file=None):
     
     try:
         with open(config_file) as f:
-            config = json.load(f)
+            config_data = json.load(f)
             
-            # Load configuration with default values
-            pPort = config.get('port', '/dev/ttyS0')
-            pBudrate = config.get('baudrate', 9600)
-            pTimeout = config.get('timeout', 10)
-            pRtscts = config.get('rtscts', False)
-            pDsrdtr = config.get('dsrdtr', False)
-            barcode_node = config.get('barcode_node', 'ns=1;i=100001')
-            barcode_response_node = config.get('barcode_response_node', 'ns=1;i=100002')
-            barcode_beep_count = config.get('barcode_beep_count', 'ns=1;i=100003')
-            log_retention_days = config.get('log_retention_days', 30)  # Keep logs for 30 days
-            
-            log_and_print(funkce=inspect.currentframe().f_code.co_name, text=f"Configuration loaded from: {config_file}", type_of_log="DEBUG")
-            return {
-                'port': pPort,
-                'baudrate': pBudrate,
-                'timeout': pTimeout,
-                'rtscts': pRtscts,
-                'dsrdtr': pDsrdtr,
-                'barcode_node': barcode_node,
-                'barcode_response_node': barcode_response_node,
-                'barcode_beep_count': barcode_beep_count,
-                'log_retention_days': log_retention_days
-            }
+            # Check if config is an array (multiple scanners) or single object
+            if isinstance(config_data, list):
+                scanners = []
+                for idx, scanner_config in enumerate(config_data):
+                    scanner = {
+                        'port': scanner_config.get('port', '/dev/ttyS0'),
+                        'baudrate': scanner_config.get('baudrate', 9600),
+                        'timeout': scanner_config.get('timeout', 10),
+                        'rtscts': scanner_config.get('rtscts', False),
+                        'dsrdtr': scanner_config.get('dsrdtr', False),
+                        'barcode_node': scanner_config.get('barcode_node', f'ns=1;i={100001 + idx * 5}'),
+                        'barcode_response_node': scanner_config.get('barcode_response_node', f'ns=1;i={100002 + idx * 5}'),
+                        'barcode_beep_count': scanner_config.get('barcode_beep_count', f'ns=1;i={100003 + idx * 5}'),
+                    }
+                    scanners.append(scanner)
+                
+                log_retention_days = config_data[0].get('log_retention_days', 30) if len(config_data) > 0 else 30
+                
+                log_and_print(funkce=inspect.currentframe().f_code.co_name, text=f"Configuration loaded: {len(scanners)} scanner(s) from {config_file}", type_of_log="DEBUG")
+                return {
+                    'scanners': scanners,
+                    'log_retention_days': log_retention_days
+                }
+            else:
+                # Single scanner configuration (backward compatibility)
+                scanner = {
+                    'port': config_data.get('port', '/dev/ttyS0'),
+                    'baudrate': config_data.get('baudrate', 9600),
+                    'timeout': config_data.get('timeout', 10),
+                    'rtscts': config_data.get('rtscts', False),
+                    'dsrdtr': config_data.get('dsrdtr', False),
+                    'barcode_node': config_data.get('barcode_node', 'ns=1;i=100001'),
+                    'barcode_response_node': config_data.get('barcode_response_node', 'ns=1;i=100002'),
+                    'barcode_beep_count': config_data.get('barcode_beep_count', 'ns=1;i=100003'),
+                }
+                log_retention_days = config_data.get('log_retention_days', 30)
+                
+                log_and_print(funkce=inspect.currentframe().f_code.co_name, text=f"Configuration loaded from: {config_file}", type_of_log="DEBUG")
+                return {
+                    'scanners': [scanner],
+                    'log_retention_days': log_retention_days
+                }
     except FileNotFoundError:
         log_and_print(funkce=inspect.currentframe().f_code.co_name, text=f"Config file not found: {config_file}", type_of_log="WARNING")
         log_and_print(funkce=inspect.currentframe().f_code.co_name, text="Using default configuration values", type_of_log="INFO")
         return {
-            'port': '/dev/ttyS0',
-            'baudrate': 9600,
-            'timeout': 10,
-            'rtscts': False,
-            'dsrdtr': False,
-            'barcode_node': 'ns=1;i=100001',
-            'barcode_response_node': 'ns=1;i=100002',
-            'barcode_beep_count': 'ns=1;i=100003',
+            'scanners': [{
+                'port': '/dev/ttyS0',
+                'baudrate': 9600,
+                'timeout': 10,
+                'rtscts': False,
+                'dsrdtr': False,
+                'barcode_node': 'ns=1;i=100001',
+                'barcode_response_node': 'ns=1;i=100002',
+                'barcode_beep_count': 'ns=1;i=100003',
+            }],
             'log_retention_days': 30
         }
     except json.JSONDecodeError as e:
@@ -245,12 +266,17 @@ def load_config(config_file=None):
 #-------------------------------------------------------------------------------------------------------------------
 # Function to read from the serial port and process scanned barcodes
 #-------------------------------------------------------------------------------------------------------------------
-def read(pPort, pBudrate, pTimeout, pRtscts, pDsrdtr):
+def read(scanner_config, scanner_name="Scanner"):
     global continue_reading
 
-    global barcode_node
-    global barcode_response_node
-    global barcode_beep_count 
+    pPort = scanner_config['port']
+    pBudrate = scanner_config['baudrate']
+    pTimeout = scanner_config['timeout']
+    pRtscts = scanner_config['rtscts']
+    pDsrdtr = scanner_config['dsrdtr']
+    barcode_node = scanner_config['barcode_node']
+    barcode_response_node = scanner_config['barcode_response_node']
+    barcode_beep_count = scanner_config['barcode_beep_count']
 
     try:
         # Zde to chce nastavit práva pro skupinu dialout
@@ -260,9 +286,9 @@ def read(pPort, pBudrate, pTimeout, pRtscts, pDsrdtr):
 
         ser = serial.Serial(pPort, baudrate=pBudrate, timeout=pTimeout, rtscts=pRtscts, dsrdtr=pDsrdtr)
             
-        print("Listening for barcodes...")
+        log_and_print(f"{scanner_name} ({pPort}): Listening for barcodes...")
     except serial.SerialException as e:
-        print(f"Error opening serial port: {e}")
+        log_and_print(f"{scanner_name} ({pPort}): Error opening serial port: {e}", type_of_log="ERROR")
         return
 
     try:
@@ -270,7 +296,7 @@ def read(pPort, pBudrate, pTimeout, pRtscts, pDsrdtr):
             if ser.in_waiting:               
 
                 barcode = ser.readline().decode('utf-8').strip()
-                print("Scanned:", barcode)
+                log_and_print(f"{scanner_name}: Scanned: {barcode}")
 
                 zapis_do_opc(barcode_response_node, False) 
                 zapis_do_opc(barcode_node, barcode)    
@@ -283,12 +309,12 @@ def read(pPort, pBudrate, pTimeout, pRtscts, pDsrdtr):
                     time.sleep(0.1)
                     pocet = pocet + 1
 
-                log_and_print("Počet:" + str(pocet))
+                log_and_print(f"{scanner_name}: Počet: {pocet}", type_of_log="DEBUG")
 
                 if potrvzeni == True:
                     bytestosend = bytes([0x06])
 
-                    log_and_print("Potvrzení ACK")
+                    log_and_print(f"{scanner_name}: Potvrzení ACK")
                     ser.write(bytestosend) 
 
                     zapis_do_opc(barcode_response_node, False) 
@@ -378,28 +404,34 @@ if __name__ == "__main__":
 
     # Load configuration from JSON file
     config = load_config()
-    pPort = config['port']
-    pBudrate = config['baudrate']
-    pTimeout = config['timeout']
-    pRtscts = config['rtscts']
-    pDsrdtr = config['dsrdtr']
-    barcode_node = config['barcode_node']
-    barcode_response_node = config['barcode_response_node']
-    barcode_beep_count = config['barcode_beep_count']
+    scanners_config = config['scanners']
     log_retention_days = config['log_retention_days']
     
     # Clean up old log files
     cleanup_old_logs(log_dir, log_retention_days)
 
-    scanner = threading.Thread(target=read, args=(pPort, pBudrate, pTimeout, pRtscts, pDsrdtr))
-    scanner.start()
+    log_and_print(f"Starting {len(scanners_config)} scanner(s)...")
+
+    # Create and start threads for all scanners
+    scanner_threads = []
+    for idx, scanner_cfg in enumerate(scanners_config):
+        scanner_name = f"Scanner-{idx+1}"
+        log_and_print(f"Initializing {scanner_name} on port {scanner_cfg['port']}")
+        thread = threading.Thread(target=read, args=(scanner_cfg, scanner_name), name=scanner_name)
+        scanner_threads.append(thread)
+        thread.start()
 
     while True:
         try:
-            # Keep the main thread alive to allow the scanner thread to run
-            scanner.join(timeout=1)
-            if not scanner.is_alive():
-                log_and_print("Vlákno scanner nežije", type_of_log="WARNING")
+            # Keep the main thread alive and check if all scanner threads are still running
+            all_alive = True
+            for thread in scanner_threads:
+                thread.join(timeout=1)
+                if not thread.is_alive():
+                    log_and_print(f"Thread {thread.name} is not alive", type_of_log="WARNING")
+                    all_alive = False
+            
+            if not all_alive:
                 continue_reading = False              
                 break
         except KeyboardInterrupt as ki:
@@ -408,7 +440,9 @@ if __name__ == "__main__":
             continue_reading = False
             break
 
-    scanner.join()
+    # Wait for all scanner threads to finish
+    for thread in scanner_threads:
+        thread.join()
 
     log_and_print("Konec", actual_date_time())
     log_and_print('-----------------------------------------------------')
