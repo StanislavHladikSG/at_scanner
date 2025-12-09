@@ -30365,3 +30365,358 @@
 2025-12-03 16:45:18.196 - DEBUG - cteni_z_opc : False
 2025-12-03 16:45:18.302 - DEBUG - Scanner-2: Počet: 20
 2025-12-03 16:45:18.303 - DEBUG - Potvrzení - False
+2025-12-09 11:12:15.171 - INFO - -----------------------------------------------------
+2025-12-09 11:12:15.171 - INFO - Začátek
+2025-12-09 11:12:15.171 - DEBUG - load_config : Configuration loaded from: /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:12:15.171 - INFO - Starting 1 scanner(s)...
+2025-12-09 11:12:15.172 - INFO - Initializing Scanner-1 on port /dev/ttyS0
+2025-12-09 11:12:15.173 - INFO - Scanner-1 (/dev/ttyS0): Listening for barcodes...
+2025-12-09 11:21:06.792 - INFO - -----------------------------------------------------
+2025-12-09 11:21:06.793 - INFO - Začátek
+2025-12-09 11:21:06.793 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:21:06.794 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:21:06.794 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:21:06.794 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:21:06.836 - INFO - Scanner-1 (/dev/ttyMOXA_left): Listening for barcodes...
+2025-12-09 11:21:06.846 - INFO - Scanner-2 (/dev/ttyMOXA_right): Listening for barcodes...
+2025-12-09 11:21:16.867 - INFO - Scanner-1: Scanned: B1258042613*
+2025-12-09 11:21:16.867 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:21:16.905 - DEBUG - zapis_do_opc : False
+2025-12-09 11:21:16.910 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:21:16.929 - DEBUG - zapis_do_opc : B1258042613*
+2025-12-09 11:21:16.933 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:16.952 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:17.057 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:17.076 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:17.180 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:17.201 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:17.308 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:17.340 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:17.445 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:17.475 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:17.586 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:17.605 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:17.710 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:17.744 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:17.849 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:17.880 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:17.987 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:18.013 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:18.122 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:18.142 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:18.247 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:18.281 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:18.385 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:18.409 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:18.516 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:18.550 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:18.655 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:18.687 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:18.793 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:18.812 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:18.916 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:18.944 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:19.053 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:19.073 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:19.177 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:19.196 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:19.301 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:19.320 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:19.424 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:19.457 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:19.562 - DEBUG - Scanner-1: Počet: 20
+2025-12-09 11:21:19.562 - DEBUG - Potvrzení - False
+2025-12-09 11:21:25.116 - INFO - Scanner-2: Scanned: B1258042613*
+2025-12-09 11:21:25.116 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:21:25.147 - DEBUG - zapis_do_opc : False
+2025-12-09 11:21:25.151 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:21:25.165 - DEBUG - zapis_do_opc : B1258042613*
+2025-12-09 11:21:25.168 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:25.179 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:25.282 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:25.301 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:25.405 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:25.438 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:25.542 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:25.575 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:25.682 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:25.714 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:25.819 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:25.844 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:25.954 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:25.984 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:26.091 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:26.109 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:26.214 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:26.232 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:26.338 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:26.362 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:26.471 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:26.490 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:26.596 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:26.615 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:26.719 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:26.745 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:26.851 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:26.880 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:26.988 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:27.024 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:27.129 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:27.155 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:27.261 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:27.288 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:27.394 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:27.423 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:27.531 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:27.559 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:27.663 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:21:27.695 - DEBUG - cteni_z_opc : False
+2025-12-09 11:21:27.801 - DEBUG - Scanner-2: Počet: 20
+2025-12-09 11:21:27.802 - DEBUG - Potvrzení - False
+2025-12-09 11:28:40.354 - INFO - -----------------------------------------------------
+2025-12-09 11:28:40.355 - INFO - Začátek
+2025-12-09 11:28:40.355 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:28:40.355 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:28:40.356 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:28:40.356 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:28:40.361 - WARNING - Thread Scanner-1 is not alive
+2025-12-09 11:28:40.361 - WARNING - Thread Scanner-2 is not alive
+2025-12-09 11:28:40.361 - INFO - 2025_12_09__11_28_40_361510 : Konec
+2025-12-09 11:28:40.361 - INFO - -----------------------------------------------------
+2025-12-09 11:28:50.754 - INFO - -----------------------------------------------------
+2025-12-09 11:28:50.754 - INFO - Začátek
+2025-12-09 11:28:50.755 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:28:50.755 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:28:50.755 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:28:50.756 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:28:50.759 - WARNING - Thread Scanner-1 is not alive
+2025-12-09 11:28:50.759 - WARNING - Thread Scanner-2 is not alive
+2025-12-09 11:28:50.759 - INFO - 2025_12_09__11_28_50_759891 : Konec
+2025-12-09 11:28:50.760 - INFO - -----------------------------------------------------
+2025-12-09 11:29:01.154 - INFO - -----------------------------------------------------
+2025-12-09 11:29:01.154 - INFO - Začátek
+2025-12-09 11:29:01.155 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:29:01.155 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:29:01.155 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:29:01.156 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:29:01.158 - WARNING - Thread Scanner-1 is not alive
+2025-12-09 11:29:01.160 - WARNING - Thread Scanner-2 is not alive
+2025-12-09 11:29:01.160 - INFO - 2025_12_09__11_29_01_160232 : Konec
+2025-12-09 11:29:01.160 - INFO - -----------------------------------------------------
+2025-12-09 11:29:12.796 - INFO - -----------------------------------------------------
+2025-12-09 11:29:12.796 - INFO - Začátek
+2025-12-09 11:29:12.798 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:29:12.799 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:29:12.799 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:29:18.034 - INFO - -----------------------------------------------------
+2025-12-09 11:29:18.035 - INFO - Začátek
+2025-12-09 11:29:18.035 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:29:18.036 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:29:18.036 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:29:18.037 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:29:18.046 - WARNING - Thread Scanner-1 is not alive
+2025-12-09 11:29:18.047 - WARNING - Thread Scanner-2 is not alive
+2025-12-09 11:29:18.047 - INFO - 2025_12_09__11_29_18_047386 : Konec
+2025-12-09 11:29:18.047 - INFO - -----------------------------------------------------
+2025-12-09 11:29:28.486 - INFO - -----------------------------------------------------
+2025-12-09 11:29:28.487 - INFO - Začátek
+2025-12-09 11:29:28.487 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:29:28.488 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:29:28.488 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:29:28.488 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:29:28.493 - WARNING - Thread Scanner-1 is not alive
+2025-12-09 11:29:28.497 - WARNING - Thread Scanner-2 is not alive
+2025-12-09 11:29:28.497 - INFO - 2025_12_09__11_29_28_497759 : Konec
+2025-12-09 11:29:28.497 - INFO - -----------------------------------------------------
+2025-12-09 11:29:38.936 - INFO - -----------------------------------------------------
+2025-12-09 11:29:38.936 - INFO - Začátek
+2025-12-09 11:29:38.936 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:29:38.937 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:29:38.937 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:29:38.938 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:29:38.943 - WARNING - Thread Scanner-1 is not alive
+2025-12-09 11:29:38.946 - WARNING - Thread Scanner-2 is not alive
+2025-12-09 11:29:38.947 - INFO - 2025_12_09__11_29_38_946953 : Konec
+2025-12-09 11:29:38.947 - INFO - -----------------------------------------------------
+2025-12-09 11:29:49.350 - INFO - -----------------------------------------------------
+2025-12-09 11:29:49.350 - INFO - Začátek
+2025-12-09 11:29:49.351 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:29:49.351 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:29:49.352 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:29:49.353 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:29:49.357 - WARNING - Thread Scanner-1 is not alive
+2025-12-09 11:29:49.357 - WARNING - Thread Scanner-2 is not alive
+2025-12-09 11:29:49.358 - INFO - 2025_12_09__11_29_49_358030 : Konec
+2025-12-09 11:29:49.358 - INFO - -----------------------------------------------------
+2025-12-09 11:29:59.742 - INFO - -----------------------------------------------------
+2025-12-09 11:29:59.742 - INFO - Začátek
+2025-12-09 11:29:59.742 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:29:59.743 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:29:59.743 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:29:59.743 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:29:59.746 - WARNING - Thread Scanner-1 is not alive
+2025-12-09 11:29:59.748 - WARNING - Thread Scanner-2 is not alive
+2025-12-09 11:29:59.748 - INFO - 2025_12_09__11_29_59_748654 : Konec
+2025-12-09 11:29:59.748 - INFO - -----------------------------------------------------
+2025-12-09 11:30:10.119 - INFO - -----------------------------------------------------
+2025-12-09 11:30:10.119 - INFO - Začátek
+2025-12-09 11:30:10.119 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:30:10.120 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:30:10.120 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:30:10.121 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:30:10.124 - WARNING - Thread Scanner-1 is not alive
+2025-12-09 11:30:10.125 - WARNING - Thread Scanner-2 is not alive
+2025-12-09 11:30:10.126 - INFO - 2025_12_09__11_30_10_126050 : Konec
+2025-12-09 11:30:10.126 - INFO - -----------------------------------------------------
+2025-12-09 11:30:20.558 - INFO - -----------------------------------------------------
+2025-12-09 11:30:20.558 - INFO - Začátek
+2025-12-09 11:30:20.559 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:30:20.559 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:30:20.559 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:30:20.560 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:30:20.562 - WARNING - Thread Scanner-1 is not alive
+2025-12-09 11:30:20.568 - WARNING - Thread Scanner-2 is not alive
+2025-12-09 11:30:20.568 - INFO - 2025_12_09__11_30_20_568713 : Konec
+2025-12-09 11:30:20.568 - INFO - -----------------------------------------------------
+2025-12-09 11:30:31.035 - INFO - -----------------------------------------------------
+2025-12-09 11:30:31.035 - INFO - Začátek
+2025-12-09 11:30:31.036 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:30:31.036 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:30:31.037 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:30:31.038 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:30:31.041 - WARNING - Thread Scanner-1 is not alive
+2025-12-09 11:30:31.042 - WARNING - Thread Scanner-2 is not alive
+2025-12-09 11:30:31.043 - INFO - 2025_12_09__11_30_31_043007 : Konec
+2025-12-09 11:30:31.043 - INFO - -----------------------------------------------------
+2025-12-09 11:30:41.460 - INFO - -----------------------------------------------------
+2025-12-09 11:30:41.460 - INFO - Začátek
+2025-12-09 11:30:41.460 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:30:41.461 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:30:41.461 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:30:41.463 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:30:41.463 - WARNING - Thread Scanner-1 is not alive
+2025-12-09 11:30:41.465 - WARNING - Thread Scanner-2 is not alive
+2025-12-09 11:30:41.465 - INFO - 2025_12_09__11_30_41_465693 : Konec
+2025-12-09 11:30:41.465 - INFO - -----------------------------------------------------
+2025-12-09 11:30:51.839 - INFO - -----------------------------------------------------
+2025-12-09 11:30:51.839 - INFO - Začátek
+2025-12-09 11:30:51.840 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:30:51.840 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:30:51.840 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:30:51.841 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:30:51.845 - WARNING - Thread Scanner-1 is not alive
+2025-12-09 11:30:51.845 - WARNING - Thread Scanner-2 is not alive
+2025-12-09 11:30:51.845 - INFO - 2025_12_09__11_30_51_845683 : Konec
+2025-12-09 11:30:51.845 - INFO - -----------------------------------------------------
+2025-12-09 11:30:56.342 - INFO - -----------------------------------------------------
+2025-12-09 11:30:56.342 - INFO - Začátek
+2025-12-09 11:30:56.344 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:30:56.345 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:30:56.345 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:30:56.349 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:30:56.393 - INFO - Scanner-1 (/dev/ttyMOXA_left): Listening for barcodes...
+2025-12-09 11:30:56.395 - INFO - Scanner-2 (/dev/ttyMOXA_right): Listening for barcodes...
+2025-12-09 11:31:02.208 - INFO - -----------------------------------------------------
+2025-12-09 11:31:02.208 - INFO - Začátek
+2025-12-09 11:31:02.208 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:31:02.209 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:31:02.209 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:31:02.209 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:31:02.218 - INFO - Scanner-1 (/dev/ttyMOXA_left): Listening for barcodes...
+2025-12-09 11:31:02.219 - INFO - Scanner-2 (/dev/ttyMOXA_right): Listening for barcodes...
+2025-12-09 11:31:49.597 - INFO - -----------------------------------------------------
+2025-12-09 11:31:49.598 - INFO - Začátek
+2025-12-09 11:31:49.600 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:31:49.601 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:31:49.601 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:31:49.606 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:31:49.617 - INFO - Scanner-1 (/dev/ttyMOXA_left): Listening for barcodes...
+2025-12-09 11:31:49.620 - INFO - Scanner-2 (/dev/ttyMOXA_right): Listening for barcodes...
+2025-12-09 11:31:59.658 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:31:59.660 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:31:59.733 - DEBUG - cteni_z_opc : 0
+2025-12-09 11:31:59.741 - DEBUG - cteni_z_opc : 0
+2025-12-09 11:31:59.753 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:31:59.756 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:31:59.800 - DEBUG - zapis_do_opc : 1
+2025-12-09 11:31:59.803 - DEBUG - zapis_do_opc : 1
+2025-12-09 11:32:16.996 - INFO - -----------------------------------------------------
+2025-12-09 11:32:16.996 - INFO - Začátek
+2025-12-09 11:32:16.997 - DEBUG - load_config : Configuration loaded: 2 scanner(s) from /home/user/at_scanner/scan_rs232.json
+2025-12-09 11:32:16.999 - INFO - Starting 2 scanner(s)...
+2025-12-09 11:32:16.999 - INFO - Initializing Scanner-1 on port /dev/ttyMOXA_left
+2025-12-09 11:32:17.002 - INFO - Initializing Scanner-2 on port /dev/ttyMOXA_right
+2025-12-09 11:32:17.017 - INFO - Scanner-2 (/dev/ttyMOXA_right): Listening for barcodes...
+2025-12-09 11:32:17.018 - INFO - Scanner-1 (/dev/ttyMOXA_left): Listening for barcodes...
+2025-12-09 11:32:27.055 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:32:27.060 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:32:27.108 - DEBUG - cteni_z_opc : 1
+2025-12-09 11:32:27.120 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:32:27.123 - DEBUG - cteni_z_opc : 1
+2025-12-09 11:32:27.134 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:32:27.171 - DEBUG - zapis_do_opc : 2
+2025-12-09 11:32:27.206 - DEBUG - zapis_do_opc : 2
+2025-12-09 11:32:37.222 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:32:37.257 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:32:37.287 - DEBUG - cteni_z_opc : 2
+2025-12-09 11:32:37.298 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:32:37.318 - DEBUG - cteni_z_opc : 2
+2025-12-09 11:32:37.336 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:32:37.349 - DEBUG - zapis_do_opc : 3
+2025-12-09 11:32:37.381 - DEBUG - zapis_do_opc : 3
+2025-12-09 11:32:47.394 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:32:47.426 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:32:47.461 - DEBUG - cteni_z_opc : 3
+2025-12-09 11:32:47.471 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:32:47.489 - DEBUG - cteni_z_opc : 3
+2025-12-09 11:32:47.508 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:32:47.530 - DEBUG - zapis_do_opc : 4
+2025-12-09 11:32:47.555 - DEBUG - zapis_do_opc : 4
+2025-12-09 11:32:57.585 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:32:57.604 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:32:57.651 - DEBUG - cteni_z_opc : 0
+2025-12-09 11:32:57.666 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:32:57.676 - DEBUG - cteni_z_opc : 0
+2025-12-09 11:32:57.702 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:32:57.713 - DEBUG - zapis_do_opc : 1
+2025-12-09 11:32:57.745 - DEBUG - zapis_do_opc : 1
+2025-12-09 11:33:07.773 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:33:07.790 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:33:07.820 - DEBUG - cteni_z_opc : 1
+2025-12-09 11:33:07.833 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:33:07.835 - DEBUG - cteni_z_opc : 1
+2025-12-09 11:33:07.848 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:33:07.883 - DEBUG - zapis_do_opc : 2
+2025-12-09 11:33:07.900 - DEBUG - zapis_do_opc : 2
+2025-12-09 11:33:17.938 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:33:17.948 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:33:18.005 - DEBUG - cteni_z_opc : 2
+2025-12-09 11:33:18.016 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:33:18.028 - DEBUG - cteni_z_opc : 2
+2025-12-09 11:33:18.044 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:33:18.069 - DEBUG - zapis_do_opc : 3
+2025-12-09 11:33:18.091 - DEBUG - zapis_do_opc : 3
+2025-12-09 11:33:28.121 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:33:28.151 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:33:28.188 - DEBUG - cteni_z_opc : 3
+2025-12-09 11:33:28.212 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:33:28.235 - DEBUG - cteni_z_opc : 3
+2025-12-09 11:33:28.256 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:33:28.278 - DEBUG - zapis_do_opc : 4
+2025-12-09 11:33:28.304 - DEBUG - zapis_do_opc : 4
+2025-12-09 11:33:38.338 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:33:38.349 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:33:38.416 - DEBUG - cteni_z_opc : 4
+2025-12-09 11:33:38.431 - DEBUG - cteni_z_opc : 4
+2025-12-09 11:33:38.434 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:33:38.445 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:33:38.494 - DEBUG - zapis_do_opc : 5
+2025-12-09 11:33:38.512 - DEBUG - zapis_do_opc : 5
+2025-12-09 11:33:48.552 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:33:48.555 - DEBUG - cteni_z_opc : Začátek
+2025-12-09 11:33:48.630 - DEBUG - cteni_z_opc : 5
+2025-12-09 11:33:48.630 - DEBUG - cteni_z_opc : 5
+2025-12-09 11:33:48.643 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:33:48.648 - DEBUG - zapis_do_opc : Začátek
+2025-12-09 11:33:48.690 - DEBUG - zapis_do_opc : 6
+2025-12-09 11:33:48.710 - DEBUG - zapis_do_opc : 6

@@ -339,8 +339,12 @@ def read(scanner_config, scanner_name="Scanner"):
             time.sleep(0.1)  # Prevent busy waiting
     except KeyboardInterrupt as ki:
         log_and_print(text=f"Stopped - {ki}", type_of_log="ERROR")
+        zapis_do_opc(barcode_health_check, 0)
+        zapis_do_opc(barcode_health_check_message, f"Stopped - {ki}")
     except Exception as ex:
         log_and_print(text=f"Error - {ex}", type_of_log="ERROR")
+        zapis_do_opc(barcode_health_check, 0)
+        zapis_do_opc(barcode_health_check_message, f"Stopped - {ki}")
     finally:
         ser.close()
 #-------------------------------------------------------------------------------------------------------------------
