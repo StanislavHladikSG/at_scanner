@@ -9,7 +9,7 @@
     "barcode_node": "ns=1;i=100001",
     "barcode_response_node": "ns=1;i=100002",
     "barcode_beep_count": "ns=1;i=100003",
-    "barcoce_health_check": "ns=1;i=100004",
+    "barcode_health_check": "ns=1;i=100004",
     "barcode_health_check_message": "ns=1;i=100005"
 },
 {
@@ -21,7 +21,7 @@
     "barcode_node": "ns=1;i=100006",
     "barcode_response_node": "ns=1;i=100007",
     "barcode_beep_count": "ns=1;i=100008",
-    "barcoce_health_check": "ns=1;i=100009",
+    "barcode_health_check": "ns=1;i=100009",
     "barcode_health_check_message": "ns=1;i=100010"
 }]
 }

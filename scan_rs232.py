@@ -18,9 +18,6 @@ continue_reading = True
 
 logger_name = os.path.splitext(os.path.basename(__file__))[0]
 
-logging.getLogger('opcua').setLevel(logging.ERROR)
-logging.getLogger(logger_name).setLevel(logging.DEBUG)
-
 #-------------------------------------------------------------------------------------------------------------------
 # Zapis do OPC serveru
 #-------------------------------------------------------------------------------------------------------------------
@@ -197,52 +194,45 @@ def load_config(config_file=None):
         with open(config_file) as f:
             config_data = json.load(f)
             
-            # Check if config is an array (multiple scanners) or single object
-            if isinstance(config_data, list):
-                scanners = []
-                for idx, scanner_config in enumerate(config_data):
-                    scanner = {
-                        'port': scanner_config.get('port', '/dev/ttyS0'),
-                        'baudrate': scanner_config.get('baudrate', 9600),
-                        'timeout': scanner_config.get('timeout', 10),
-                        'rtscts': scanner_config.get('rtscts', False),
-                        'dsrdtr': scanner_config.get('dsrdtr', False),
-                        'barcode_node': scanner_config.get('barcode_node', f'ns=1;i={100001 + idx * 5}'),
-                        'barcode_response_node': scanner_config.get('barcode_response_node', f'ns=1;i={100002 + idx * 5}'),
-                        'barcode_beep_count': scanner_config.get('barcode_beep_count', f'ns=1;i={100003 + idx * 5}'),
-                    }
-                    scanners.append(scanner)
-                
-                log_retention_days = config_data[0].get('log_retention_days', 30) if len(config_data) > 0 else 30
-                
-                log_and_print(funkce=inspect.currentframe().f_code.co_name, text=f"Configuration loaded: {len(scanners)} scanner(s) from {config_file}", type_of_log="DEBUG")
-                return {
-                    'scanners': scanners,
-                    'log_retention_days': log_retention_days
-                }
-            else:
-                # Single scanner configuration (backward compatibility)
+            # Extract scanner configurations and log retention days
+            scanner_configs = config_data.get('scanner_configurations', [])
+            log_retention_days = config_data.get('log_retention_days', 30)
+            log_level = config_data.get('log_level', 'INFO').upper()
+            
+            # If scanner_configurations key doesn't exist, check if it's direct array or single object (backward compatibility)
+            if not scanner_configs:
+                if isinstance(config_data, list):
+                    scanner_configs = config_data
+                else:
+                    scanner_configs = [config_data]
+            
+            scanners = []
+            for idx, scanner_config in enumerate(scanner_configs):
                 scanner = {
-                    'port': config_data.get('port', '/dev/ttyS0'),
-                    'baudrate': config_data.get('baudrate', 9600),
-                    'timeout': config_data.get('timeout', 10),
-                    'rtscts': config_data.get('rtscts', False),
-                    'dsrdtr': config_data.get('dsrdtr', False),
-                    'barcode_node': config_data.get('barcode_node', 'ns=1;i=100001'),
-                    'barcode_response_node': config_data.get('barcode_response_node', 'ns=1;i=100002'),
-                    'barcode_beep_count': config_data.get('barcode_beep_count', 'ns=1;i=100003'),
+                    'port': scanner_config.get('port', '/dev/ttyS0'),
+                    'baudrate': scanner_config.get('baudrate', 9600),
+                    'timeout': scanner_config.get('timeout', 10),
+                    'rtscts': scanner_config.get('rtscts', False),
+                    'dsrdtr': scanner_config.get('dsrdtr', False),
+                    'barcode_node': scanner_config.get('barcode_node', f'ns=1;i={100001 + idx * 5}'),
+                    'barcode_response_node': scanner_config.get('barcode_response_node', f'ns=1;i={100002 + idx * 5}'),
+                    'barcode_beep_count': scanner_config.get('barcode_beep_count', f'ns=1;i={100003 + idx * 5}'),
+                    'barcode_health_check': scanner_config.get('barcode_health_check', f'ns=1;i={100004 + idx * 5}'),
+                    'barcode_health_check_message': scanner_config.get('barcode_health_check_message', f'ns=1;i={100005 + idx * 5}')
                 }
-                log_retention_days = config_data.get('log_retention_days', 30)
-                
-                log_and_print(funkce=inspect.currentframe().f_code.co_name, text=f"Configuration loaded from: {config_file}", type_of_log="DEBUG")
-                return {
-                    'scanners': [scanner],
-                    'log_retention_days': log_retention_days
-                }
+                scanners.append(scanner)
+            
+            log_and_print(funkce=inspect.currentframe().f_code.co_name, text=f"Configuration loaded: {len(scanners)} scanner(s) from {config_file}", type_of_log="DEBUG")
+            return {
+                'scanners': scanners,
+                'log_retention_days': log_retention_days,
+                'log_level': log_level
+            }
     except FileNotFoundError:
         log_and_print(funkce=inspect.currentframe().f_code.co_name, text=f"Config file not found: {config_file}", type_of_log="WARNING")
         log_and_print(funkce=inspect.currentframe().f_code.co_name, text="Using default configuration values", type_of_log="INFO")
         return {
+            'log_level': 'INFO',
             'scanners': [{
                 'port': '/dev/ttyS0',
                 'baudrate': 9600,
@@ -252,8 +242,10 @@ def load_config(config_file=None):
                 'barcode_node': 'ns=1;i=100001',
                 'barcode_response_node': 'ns=1;i=100002',
                 'barcode_beep_count': 'ns=1;i=100003',
+                'barcode_health_check': 'ns=1;i=100004',
+                'barcode_health_check_message': 'ns=1;i=100005'
             }],
-            'log_retention_days': 30
+            'log_retention_days': 30          
         }
     except json.JSONDecodeError as e:
         log_and_print(funkce=inspect.currentframe().f_code.co_name, text=f"Error decoding JSON config: {e}", type_of_log="ERROR")
@@ -277,6 +269,8 @@ def read(scanner_config, scanner_name="Scanner"):
     barcode_node = scanner_config['barcode_node']
     barcode_response_node = scanner_config['barcode_response_node']
     barcode_beep_count = scanner_config['barcode_beep_count']
+    barcode_health_check = scanner_config['barcode_health_check']
+    barcode_health_check_message = scanner_config['barcode_health_check_message']
 
     try:
         # Zde to chce nastavit práva pro skupinu dialout
@@ -292,6 +286,9 @@ def read(scanner_config, scanner_name="Scanner"):
         return
 
     try:
+
+        health_timer_count = 0
+
         while continue_reading:
             if ser.in_waiting:               
 
@@ -329,6 +326,15 @@ def read(scanner_config, scanner_name="Scanner"):
 
                 if potrvzeni == False:
                     log_and_print(text=f"Potvrzení - {potrvzeni}", type_of_log="DEBUG")
+            
+            # Write to opc tag health_check every 10 seconds
+            if health_timer_count >= 100:
+                health_check = cteni_z_opc(barcode_health_check)
+                health_check += 1
+                zapis_do_opc(barcode_health_check, health_check)
+                health_timer_count = 0
+
+            health_timer_count += 1
 
             time.sleep(0.1)  # Prevent busy waiting
     except KeyboardInterrupt as ki:
@@ -406,7 +412,14 @@ if __name__ == "__main__":
     config = load_config()
     scanners_config = config['scanners']
     log_retention_days = config['log_retention_days']
+    log_level = config['log_level']
     
+    # Convert string log level to logging constant
+    numeric_level = getattr(logging, log_level, logging.INFO)
+    
+    logging.getLogger('opcua').setLevel(logging.ERROR)
+    logging.getLogger(logger_name).setLevel(numeric_level)
+
     # Clean up old log files
     cleanup_old_logs(log_dir, log_retention_days)
 
