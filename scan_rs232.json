@@ -1,5 +1,6 @@
 {
 "log_level": "INFO",
+"log_retention_days": 1,
 "scanner_configurations": [{
     "port": "/dev/ttyMOXA_left",
     "baudrate": 9600,

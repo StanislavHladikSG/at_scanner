@@ -356,7 +356,7 @@ if __name__ == "__main__":
     #---------------------------------------------------------
     # Setting for logging
     #---------------------------------------------------------
-    logger = logging.getLogger(__name__)
+    logger = logging.getLogger(logger_name)
     logger.setLevel(logging.DEBUG)
 
     actual_dir = get_script_path()
@@ -420,6 +420,7 @@ if __name__ == "__main__":
     
     # Convert string log level to logging constant
     numeric_level = getattr(logging, log_level, logging.INFO)
+    logger.setLevel(numeric_level)
     
     logging.getLogger('opcua').setLevel(logging.ERROR)
     logging.getLogger(logger_name).setLevel(numeric_level)
