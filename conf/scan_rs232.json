@@ -1,0 +1,30 @@
+{
+    "log_level": "INFO",
+    "log_retention_days": 1,
+    "scanner_configurations": [
+        {
+            "barcode": "ns=1;i=100001",
+            "barcode_health_check": "ns=1;i=100004",
+            "barcode_health_check_message": "ns=1;i=100005",
+            "barcode_pocet_pipnuti": "ns=1;i=100003",
+            "barcode_tvrzeni": "ns=1;i=100002",
+            "baudrate": 9600,
+            "dsrdtr": false,
+            "port": "/dev/ttyMOXA_left",
+            "rtscts": false,
+            "timeout": 1.0
+        },
+        {
+            "barcode2": "ns=1;i=100006",
+            "barcode2_health_check": "ns=1;i=100009",
+            "barcode2_health_check_message": "ns=1;i=100010",
+            "barcode2_pocet_pipnuti": "ns=1;i=100008",
+            "barcode2_potvrzeni": "ns=1;i=100007",
+            "baudrate": 9600,
+            "dsrdtr": false,
+            "port": "/dev/ttyMOXA_right",
+            "rtscts": false,
+            "timeout": 1.0
+        }
+    ]
+}

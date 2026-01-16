@@ -10,6 +10,7 @@ import inspect
 from datetime import datetime
 from opcua import Client, ua
 from logging.handlers import TimedRotatingFileHandler
+from conf.conf import get_scanner_configurations, get_log_level, get_log_retention_days, get_version, update_local_config_from_remote
 
 global_barcode = ""
 server_url = "opc.tcp://0.0.0.0:4840"
@@ -188,7 +189,10 @@ def load_config(config_file=None):
     """Load configuration from JSON file with default values"""
     if config_file is None:
         script_dir = get_script_path()
-        config_file = os.path.join(script_dir, 'scan_rs232.json')
+        # First try conf subdirectory, then script directory (backward compatibility)
+        config_file = os.path.join(script_dir, 'conf', 'scan_rs232.json')
+        if not os.path.exists(config_file):
+            config_file = os.path.join(script_dir, 'scan_rs232.json')
     
     try:
         with open(config_file) as f:
@@ -412,11 +416,13 @@ if __name__ == "__main__":
     log_and_print(text='-----------------------------------------------------')
     log_and_print(text="Začátek")
 
-    # Load configuration from JSON file
-    config = load_config()
-    scanners_config = config['scanners']
-    log_retention_days = config['log_retention_days']
-    log_level = config['log_level']
+    update_local_config_from_remote()
+
+    # Load configuration from conf module
+    scanners_config = get_scanner_configurations()
+    log_retention_days = get_log_retention_days()
+    log_level = get_log_level()
+    version = get_version()
     
     # Convert string log level to logging constant
     numeric_level = getattr(logging, log_level, logging.INFO)
